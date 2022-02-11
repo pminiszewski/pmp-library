@@ -1,0 +1,7 @@
+[wrap-git]
+directory = pmp
+url = git@github.com:pminiszewski/pmp-library.git
+revision = master
+clone-recursive = true
+[provide]
+pmp = pmp_dep
