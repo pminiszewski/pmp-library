@@ -41,4 +41,4 @@ cpp_args: [
   '-D_USE_MATH_DEFINES'
 ])
 
-pmp_dep = declare_dependency(link_with: pmp_lib, include_directories: ['..'], dependencies: [] )
+pmp_dep = declare_dependency(link_with: pmp_lib, include_directories: ['..'], dependencies: [eigen_dep] )
