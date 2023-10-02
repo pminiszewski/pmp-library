@@ -1,22 +1,22 @@
 # Introduction
 
 [![build](https://github.com/pmp-library/pmp-library/workflows/build/badge.svg)](https://github.com/pmp-library/pmp-library/actions?query=workflow%3Abuild)
-[![Coverage Status](https://coveralls.io/repos/github/pmp-library/pmp-library/badge.svg?branch=master)](https://coveralls.io/github/pmp-library/pmp-library?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/pmp-library/pmp-library/badge.svg?branch=master)](https://coveralls.io/github/pmp-library/pmp-library?branch=main)
+[![Latest Release](https://img.shields.io/github/v/release/pmp-library/pmp-library?sort=semver)](https://github.com/pmp-library/pmp-library/releases/latest)
 
-The Polygon Mesh Processing Library is a modern C++ open-source library for
-processing and visualizing polygon surface meshes. Its main features are:
+The Polygon Mesh Processing Library is a modern C++ open-source library for processing and visualizing polygon surface meshes. Its main features are:
 
 - An efficient and easy-to-use mesh data structure
-- Canonical mesh processing algorithms
+- Standard algorithms such as decimation, remeshing, subdivision, or smoothing
 - Ready-to-use visualization tools
-- Seamless cross-compilation to JavaScript ([demo](https://www.pmp-library.org/mpview.html))
+- Seamless cross-compilation to JavaScript ([demo](https://www.pmp-library.org/demos/mpview.html))
 
-## Getting Started
+## Get Started
 
 Clone the repository:
 
 ```sh
-git clone --recursive https://github.com/pmp-library/pmp-library.git
+git clone https://github.com/pmp-library/pmp-library.git
 ```
 
 Configure and build:
@@ -28,33 +28,34 @@ cd pmp-library && mkdir build && cd build && cmake .. && make
 Run the mesh processing app:
 
 ```sh
-./mpview ../external/pmp-data/off/bunny.off
+./mpview ../data/off/bunny.off
 ```
 
 Build your own tool:
 
 ```cpp
-#include <pmp/SurfaceMesh.h>
+#include <pmp/surface_mesh.h>
 
 int main(void)
 {
     pmp::SurfaceMesh mesh;
-    mesh.read("input.obj");
+    pmp::read(mesh,"input.obj");
     // .. do awesome things with your mesh
-    mesh.write("output.obj");
+    pmp::write(mesh,"output.obj");
 }
 ```
 
-## Contributing
+## Read the Docs
 
-Contributions to the pmp-library are welcome. See the
-[contributing](https://www.pmp-library.org/contributing.html) section of the
-[user guide](https://www.pmp-library.org/userguide.html).
+The [user guide](https://www.pmp-library.org/guide.html) contains all you need to get started using PMP, including a [tutorial](https://www.pmp-library.org/tutorial.html) covering mesh processing basics.
 
-## Acknowledgment
+## Contribute
 
-If you are using the pmp-library for research projects, please acknowledge its
-use by referencing
+Contributions to PMP are welcome! There are many ways you can help: Report any [issues](https://github.com/pmp-library/pmp-library/issues) you find, help to improve the documentation, join our [discussions](https://github.com/pmp-library/pmp-library/discussions) forum, or [contribute](https://www.pmp-library.org/contributing.html) new code.
+
+## Acknowledge
+
+If you are using PMP for research projects, please acknowledge its use by referencing
 
 ```tex
 @misc{pmp-library,
@@ -65,8 +66,8 @@ year   = {2019},
 }
 ```
 
+We acknowledge that PMP evolved from our previous work on [Surface_mesh](http://dx.doi.org/10.1007/978-3-642-24734-7_29) and [OpenMesh](https://pub.uni-bielefeld.de/record/1961694).
+
 ## License
 
-The pmp-library is provided under a simple and flexible MIT-style
-[license](https://github.com/pmp-library/pmp-library/blob/master/LICENSE.txt),
-thereby allowing for both open-source and commercial usage.
+PMP is provided under a simple and flexible MIT-style [license](https://github.com/pmp-library/pmp-library/blob/master/LICENSE.txt) allowing for both open-source and commercial usage.
