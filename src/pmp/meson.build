@@ -1,34 +1,44 @@
 
 
 pmp_lib = static_library('pmp', [
-  'SurfaceMesh.cpp',
-  'SurfaceMeshIO.cpp',
-  'algorithms\DifferentialGeometry.cpp',
-  'algorithms\DistancePointTriangle.cpp',
-  'algorithms\SurfaceCurvature.cpp',
-  'algorithms\SurfaceFactory.cpp',
-  'algorithms\SurfaceFairing.cpp',
-  'algorithms\SurfaceFeatures.cpp',
-  'algorithms\SurfaceGeodesic.cpp',
-  'algorithms\SurfaceHoleFilling.cpp',
-  'algorithms\SurfaceNormals.cpp',
-  'algorithms\SurfaceParameterization.cpp',
-  'algorithms\SurfaceRemeshing.cpp',
-  'algorithms\SurfaceSimplification.cpp',
-  'algorithms\SurfaceSmoothing.cpp',
-  'algorithms\SurfaceSubdivision.cpp',
-  'algorithms\SurfaceTriangulation.cpp',
-  'algorithms\TriangleKdTree.cpp',
+  'surface_mesh.cpp',
+  'algorithms/curvature.cpp',
+  'algorithms/decimation.cpp',
+  'algorithms/differential_geometry.cpp',
+  'algorithms/distance_point_triangle.cpp',
+  'algorithms/fairing.cpp',
+  'algorithms/features.cpp',
+  'algorithms/geodesics.cpp',
+  'algorithms/hole_filling.cpp',
+  'algorithms/laplace.cpp',
+  'algorithms/normals.cpp',
+  'algorithms/numerics.cpp',
+  'algorithms/parameterization.cpp',
+  'algorithms/remeshing.cpp',
+  'algorithms/shapes.cpp',
+  'algorithms/smoothing.cpp',
+  'algorithms/subdivision.cpp',
+  'algorithms/triangulation.cpp',
+  'algorithms/utilities.cpp',
+  'io/io.cpp',
+  'io/read_obj.cpp',
+  'io/read_off.cpp',
+  'io/read_pmp.cpp',
+  'io/read_stl.cpp',
+  'io/write_obj.cpp',
+  'io/write_off.cpp',
+  'io/write_pmp.cpp',
+  'io/write_stl.cpp'
 ],
+
 include_directories: [
   '..'
 ],
 dependencies: [
   eigen_dep,
-  rply_dep,
 ],
 cpp_args: [
   '-D_USE_MATH_DEFINES'
 ])
 
-pmp_dep = declare_dependency(link_with: pmp_lib, include_directories: ['..'], dependencies: [eigen_dep] )
+pmp_dep = declare_dependency(link_with: pmp_lib, include_directories: ['..'], dependencies: [] )
